@@ -1,0 +1,11 @@
+<h1>{{ title }}</h1>
+
+<div *ngFor="let msg of messages">
+    {{msg}}
+</div>
+
+<label>
+    Message:
+    <input [(ngModel)]="msg" (keyup)="$event.key == 13 && sendMessage()">
+</label>
+<button (click)="sendMessage()">Send</button>
