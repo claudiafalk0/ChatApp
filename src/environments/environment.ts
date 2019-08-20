@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  chatUrl: 'http://localhost:3000'
+  chatUrl: 'https://sleepy-plateau-12004.herokuapp.com'
 };
 
 /*

@@ -25,6 +25,7 @@ import { NativeScriptFormsModule } from 'nativescript-angular';
         AppRoutingModule,
         NativeScriptFormsModule
     ],
+  // providers: [],
   providers: [ChatService],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]

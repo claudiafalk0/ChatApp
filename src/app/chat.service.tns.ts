@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '@src/environments/environment';
-import * as io from 'socket.io-client';
+import * as io from 'nativescript-socket.io';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,11 +11,13 @@ export class ChatService {
   private socket;
 
   constructor() {
-    this.socket = io(environment.chatUrl);
+    io.enableDebug();
+    this.socket = io.connect('http://10.0.0.91:3000', {});
   }
 
   public sendMessage(msg) {
     this.socket.emit('new-message', msg);
+    console.log(this.socket);
   }
 
   public getMessages = () => {

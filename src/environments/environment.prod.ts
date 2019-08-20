@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  chatUrl: 'TBD'
+  chatUrl: 'https://sleepy-plateau-12004.herokuapp.com'
 };

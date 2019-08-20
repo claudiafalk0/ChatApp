@@ -1,1 +1,14 @@
-<Button text="chat works!" class="btn btn-primary"></Button>
+<!--<Button text="chat works!" class="btn btn-primary"></Button>-->
+<StackLayout class="form">
+    <StackLayout>
+        <TextView editable="false" *ngFor="let msg of messages">
+            <FormattedString>
+                <Span text="{{msg}}"></Span>
+            </FormattedString>
+        </TextView>
+    </StackLayout>
+    <StackLayout orientation="horizontal">
+        <TextField [(ngModel)]="msg" hint="Enter message..."></TextField>
+        <Button text="Send" (tap)="sendMessage()"></Button>
+    </StackLayout>
+</StackLayout>
