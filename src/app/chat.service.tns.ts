@@ -12,12 +12,11 @@ export class ChatService {
 
   constructor() {
     io.enableDebug();
-    this.socket = io.connect('http://10.0.0.91:3000', {});
+    this.socket = io.connect(environment.chatUrl, {});
   }
 
   public sendMessage(msg) {
     this.socket.emit('new-message', msg);
-    console.log(this.socket);
   }
 
   public getMessages = () => {

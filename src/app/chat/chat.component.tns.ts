@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from '@src/app/chat.service';
+import { ObservableArray } from 'tns-core-modules/data/observable-array';
 
 @Component({
   selector: 'app-chat',
@@ -9,7 +10,7 @@ import { ChatService } from '@src/app/chat.service';
 export class ChatComponent implements OnInit {
 
   msg: string;
-  messages: string[] = [];
+  messages = new ObservableArray();
 
   constructor(private chatService: ChatService) { }
 

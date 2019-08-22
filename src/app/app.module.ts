@@ -9,7 +9,7 @@ import { ChatService } from '@src/app/chat.service';
 import { ChatComponent } from '@src/app/chat/chat.component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './auth/auth.service';
-import {CallbackComponent} from "@src/app/callback/callback.component";
+import { CallbackComponent } from '@src/app/callback/callback.component';
 
 
 @NgModule({
