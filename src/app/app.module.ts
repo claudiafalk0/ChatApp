@@ -8,8 +8,9 @@ import { HomeComponent } from '@src/app/home/home.component';
 import { ChatService } from '@src/app/chat.service';
 import { ChatComponent } from '@src/app/chat/chat.component';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from './auth/auth.service';
+import { NavbarComponent } from '@src/app/navbar/navbar.component';
 import { CallbackComponent } from '@src/app/callback/callback.component';
+import { ProfileComponent } from '@src/app/profile/profile.component';
 
 
 @NgModule({
@@ -17,7 +18,9 @@ import { CallbackComponent } from '@src/app/callback/callback.component';
     AppComponent,
     HomeComponent,
     ChatComponent,
-    CallbackComponent
+    NavbarComponent,
+    CallbackComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,7 @@ import { CallbackComponent } from '@src/app/callback/callback.component';
     FormsModule
   ],
   providers: [
-      ChatService, AuthService
+      ChatService
   ],
   bootstrap: [AppComponent]
 })

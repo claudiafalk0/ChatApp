@@ -1,9 +1,4 @@
 <router-outlet>
-
     <h1> Welcome to ChatApp</h1>
-        <div>
-            <label><button *ngIf="!authService.isLoggedIn" (click)="authService.login()">Log In</button>
-            </label>
-            <label><button (click)="authService.logout()" *ngIf="authService.isLoggedIn">Log out</button></label>
-        </div>
+    <app-navbar></app-navbar>
 </router-outlet>

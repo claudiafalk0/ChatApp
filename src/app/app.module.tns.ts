@@ -6,6 +6,9 @@ import { HomeComponent } from '@src/app/home/home.component';
 import { ChatService } from '@src/app/chat.service';
 import { ChatComponent } from '@src/app/chat/chat.component';
 import { NativeScriptFormsModule } from 'nativescript-angular';
+import { ProfileComponent } from '@src/app/profile/profile.component';
+import { NavbarComponent } from '@src/app/navbar/navbar.component';
+import { CallbackComponent } from '@src/app/callback/callback.component';
 
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
@@ -19,6 +22,9 @@ import { NativeScriptFormsModule } from 'nativescript-angular';
     AppComponent,
     HomeComponent,
     ChatComponent,
+    ProfileComponent,
+    NavbarComponent,
+    CallbackComponent,
   ],
     imports: [
         NativeScriptModule,
