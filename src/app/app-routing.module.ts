@@ -8,14 +8,13 @@ import {ChatComponent} from "@src/app/chat/chat.component";
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
-  {
-    path: 'chat',
-    component: ChatComponent,
-    canActivate: [AuthGuard]
-  },
+  // {
+  //   path: 'chat',
+  //   component: ChatComponent,
+  // },
   {
     path: 'callback',
     component: CallbackComponent
@@ -25,7 +24,7 @@ const routes: Routes = [
     component: ProfileComponent,
     canActivate: [AuthGuard]
   }
-]
+];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
