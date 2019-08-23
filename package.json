@@ -17,8 +17,7 @@
     "android": "tns run android",
     "ios": "tns run ios",
     "mobile": "tns run",
-    "preview": "tns preview",
-    "heroku-postbuild": "ng build --prod"
+    "preview": "tns preview"
   },
   "private": true,
   "dependencies": {
