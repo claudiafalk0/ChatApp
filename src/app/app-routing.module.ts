@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { CallbackComponent} from "@src/app/callback/callback.component";
-import {ProfileComponent} from "@src/app/profile/profile.component";
-import { AuthGuard} from "@src/app/auth/auth.guard";
-import {ChatComponent} from "@src/app/chat/chat.component";
+import { RouterModule, Routes } from '@angular/router';
+import { CallbackComponent } from '@src/app/callback/callback.component';
+import { ProfileComponent } from '@src/app/profile/profile.component';
+import { AuthGuard } from '@src/app/auth/auth.guard';
+import { ChatComponent } from '@src/app/chat/chat.component';
 
 const routes: Routes = [
   {
@@ -11,10 +11,11 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  // {
-  //   path: 'chat',
-  //   component: ChatComponent,
-  // },
+  {
+    path: 'chat',
+    component: ChatComponent,
+    canActivate: [AuthGuard]
+  },
   {
     path: 'callback',
     component: CallbackComponent
@@ -25,10 +26,12 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   }
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
 
 

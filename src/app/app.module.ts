@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from '@src/app/navbar/navbar.component';
 import { CallbackComponent } from '@src/app/callback/callback.component';
 import { ProfileComponent } from '@src/app/profile/profile.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ProfileComponent } from '@src/app/profile/profile.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+      FormsModule,
+      FontAwesomeModule
   ],
   providers: [
       ChatService
