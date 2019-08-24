@@ -3,6 +3,8 @@ import { ChatService } from '@src/app/chat.service';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '@src/app/auth/auth.service';
 import { Subscription } from 'rxjs';
+import { distinctUntilChanged, filter } from 'rxjs/operators';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-chat',
@@ -22,13 +24,17 @@ export class ChatComponent implements OnInit {
   }
 
   sendMessage() {
-    this.chatService.sendMessage({name: this.username, message: this.msg});
+    this.chatService.sendMessage({name: this.username, message: this.msg, timestamp: moment().format('hh:mm A')});
     this.msg = '';
   }
 
   ngOnInit() {
     this.chatService
         .getMessages()
+        .pipe(
+            distinctUntilChanged((prev: any, curr: any) => prev.name.concat(prev.message) === curr.name.concat(curr.message)),
+            filter((msg: any) => msg.message.trim().length > 0)
+        )
         .subscribe((msg: object) => {
           this.messages.push(msg);
           console.log(msg);
