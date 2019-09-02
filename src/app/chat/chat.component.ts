@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from '@src/app/chat.service';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from '@src/app/auth/auth.service';
+import { Subscription } from 'rxjs';
+import { distinctUntilChanged, filter } from 'rxjs/operators';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-chat',
@@ -10,21 +14,28 @@ import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 export class ChatComponent implements OnInit {
 
   msg: string;
-  messages: string[] = [];
+  messages: object[] = [];
   faPaperPlane = faPaperPlane;
+  username: Subscription = this.auth
+      .getUser$()
+      .subscribe(user => this.username = user.nickname);
 
-  constructor(private chatService: ChatService) {
+  constructor(private chatService: ChatService, private auth: AuthService) {
   }
 
   sendMessage() {
-    this.chatService.sendMessage(this.msg);
+    this.chatService.sendMessage({name: this.username, message: this.msg, timestamp: moment().format('hh:mm A')});
     this.msg = '';
   }
 
   ngOnInit() {
     this.chatService
         .getMessages()
-        .subscribe((msg: string) => {
+        .pipe(
+            distinctUntilChanged((prev: any, curr: any) => prev.name.concat(prev.message) === curr.name.concat(curr.message)),
+            filter((msg: any) => msg.message.trim().length > 0)
+        )
+        .subscribe((msg: object) => {
           this.messages.push(msg);
           console.log(msg);
         });
