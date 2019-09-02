@@ -4,12 +4,17 @@ import { CallbackComponent } from '@src/app/callback/callback.component';
 import { ProfileComponent } from '@src/app/profile/profile.component';
 import { AuthGuard } from '@src/app/auth/auth.guard';
 import { ChatComponent } from '@src/app/chat/chat.component';
+import {HomeComponent} from "@src/app/home/home.component";
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   },
   {
     path: 'chat',

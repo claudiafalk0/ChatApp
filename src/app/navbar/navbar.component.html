@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <a class="navbar-brand text-center text-md-left" routerLink="/"><fa-icon [icon]="faPaperPlane"></fa-icon></a>
+    <a class="navbar-brand text-center text-md-left" routerLink="/"><img src="../../assets/images/logo_transparent.png" alt="logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -13,10 +13,10 @@
             <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                 <a class="nav-link" *ngIf="auth.loggedIn" routerLink="/chat">Get Some Woo!</a>
             </li>
-        </ul>
+    <div id= 'login' class="nav-item">
+        <button  (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</button>
+        <button  (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</button>
     </div>
-    <div class="justify-content-end">
-        <button (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</button>
-        <button (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</button>
+        </ul>
     </div>
 </nav>
