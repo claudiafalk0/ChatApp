@@ -4,7 +4,7 @@
       "baseUrl": ".",
     "outDir": "./out-tsc/app",
     "module": "es2015",
-    "types": [],
+    "types": ["node"],
     "paths": {
         "*": ["types/*"],
       "@src/*": [

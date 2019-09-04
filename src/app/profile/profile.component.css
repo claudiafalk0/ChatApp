@@ -1,11 +1,18 @@
 #profileImg {
-    margin-top: 1%;
+    margin: 0 1rem;
 }
 .card {
     margin: 20px, auto;
     height: auto;
-    width: 25%;
+    width: 60%;
 }
-body{
-    text-align: center;
+
+@media (max-width: 1024px){
+    .card{
+        width: 97%
+    }
+}
+
+@media (max-width: 768px){
+
 }

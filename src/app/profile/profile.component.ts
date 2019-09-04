@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
+import {FormUploadComponent} from "@src/app/AWS/AWS.component";
 
 @Component({
   selector: 'app-profile',
@@ -7,7 +8,7 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  constructor(public auth: AuthService) {
+  constructor(public auth: AuthService, public AWS: FormUploadComponent) {
   }
 
   ngOnInit() {

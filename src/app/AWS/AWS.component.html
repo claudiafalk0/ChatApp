@@ -1,0 +1,9 @@
+<img id='profileImg' [src]="'https://bubblechat.s3.us-east-2.amazonaws.com/' + username + 'profile'"
+     src-fallback="https://via.placeholder.com/250" alt="profile image">
+<div>
+
+    <label class="btn btn-default">
+        <input type="file" (change)="selectFile($event)">
+    </label>
+    <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
+</div>

@@ -41,7 +41,9 @@
 }
 
 img {
-    height: 50%;
-    width: auto;
-    margin-left: 15rem;
+    height: 50vh;
+    display: block;
+    margin: 20px auto;
+    border-radius: 15px;
+
 }

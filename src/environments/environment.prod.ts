@@ -7,5 +7,10 @@ export const environment = {
     audience: 'http://localhost:3000', // e.g., http://localhost:3001
     redirect: 'http://localhost:4200/callback',
     scope: 'openid profile email'
+  },
+  AWS: {
+    AWSAccessKeyId:"AKIAIJWNY4UQVJMNA66Q",
+    AWSSecretKey:'exoZjG/B2R+xcSZV0o4m08YrtuWwgEn1xlOaqvls',
+    Bucket:'bubblechat'
   }
 };
