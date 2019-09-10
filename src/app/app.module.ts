@@ -15,6 +15,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {FormUploadComponent} from '@src/app/AWS/AWS.component'
 import {UploadFileService} from "@src/app/services/upload.service";
 import {ImgFallbackModule} from "ngx-img-fallback";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {ImgFallbackModule} from "ngx-img-fallback";
         AppRoutingModule,
         FormsModule,
         FontAwesomeModule,
-        ImgFallbackModule
+        ImgFallbackModule,
+        HttpClientModule
     ],
     providers: [
         ChatService,

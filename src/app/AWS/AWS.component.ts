@@ -9,21 +9,7 @@ import {AuthService} from '@src/app/auth/auth.service';
     styleUrls: ['./AWS.component.css'],
     // directives: [DefaultImage]
 })
-// @Directive({
-//     selector: 'img[default]',
-//     host: {
-//         '(error)':'defaultUrl()',
-//         '[src]': 'src'
-//     }
-// })
-// class DefaultImage{
-//     @Input() src:string;
-//     @Input() default:string = 'https://via.placeholder.com/250';
-//
-//     defaultUrl(){
-//         this.src = this.default;
-//     }
-// }
+
 export class FormUploadComponent implements OnInit {
 
     selectedFiles: FileList;
@@ -41,8 +27,7 @@ export class FormUploadComponent implements OnInit {
     upload() {
         const file = this.selectedFiles.item(0);
         this.uploadService.uploadFile(file, this.username);
-        // this.cacheBuster = new Date();
-        this.delay(1000).then(() => document.getElementById('profileImg').setAttribute('src',
+        this.delay(3000).then(() => document.getElementById('profileImg').setAttribute('src',
             'https://bubblechat.s3.us-east-2.amazonaws.com/' + this.username + 'profile?cb=' + Date()));
 
     }
