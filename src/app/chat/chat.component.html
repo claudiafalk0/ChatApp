@@ -15,7 +15,8 @@
         <div id="sendMsg" class="form-group row">
             <div class="col-11 p-0">
                 <label for="chatInput"></label>
-                <input type="text" [(ngModel)]="msg" class="form-control" id="chatInput" placeholder="Enter message...">
+                <input type="text" [(ngModel)]="msg" class="form-control" id="chatInput" placeholder="Enter message..."
+                       (keyup.enter)="sendMessage()">
             </div>
             <div id="subForm" class="col-1 p-0">
                 <button class='btn btn-danger' (click)="sendMessage()">
