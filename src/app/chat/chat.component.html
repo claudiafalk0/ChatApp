@@ -1,16 +1,27 @@
-<div *ngFor="let msg of messages">
-    <!--    <span>{{msg.name === username ? 'You' : msg.name}}: </span>-->
-    <!--    <span>{{msg.message}} {{msg.timestamp}}</span>-->
-    <div [className]="msg.name === username ? 'msg-bubble-you' : 'msg-bubble-them'">
-        <span class="d-block msg-data">{{msg.message}}</span>
-        <span class="d-block msg-details">{{msg.name === username ? 'You' : msg.name}} - {{msg.timestamp}}</span>
+<div class="container">
+    <div #chatContainer id="chat-container" class="">
+        <div *ngFor="let msg of messages">
+            <!--    <span>{{msg.name === username ? 'You' : msg.name}}: </span>-->
+            <!--    <span>{{msg.message}} {{msg.timestamp}}</span>-->
+            <div [className]="msg.name === username ? 'msg-bubble-you' : 'msg-bubble-them'">
+                <span class="d-block msg-data">{{msg.message}}</span>
+                <span class="d-block msg-details">{{msg.name === username ? 'You' : msg.name}}
+                    - {{msg.timestamp}}</span>
+            </div>
+        </div>
+
     </div>
-</div>
-<div id='sendMsg'>
-    <label>
-        <input [(ngModel)]="msg" (keyup)="$event.key == 13 && sendMessage()">
-    </label>
-    <button class='btn btn-danger' (click)="sendMessage()">
-        <fa-icon [icon]="faPaperPlane"></fa-icon>
-    </button>
+    <div class="container-fluid p-0 no-gutters">
+        <div id="sendMsg" class="form-group row">
+            <div class="col-11 p-0">
+                <label for="chatInput"></label>
+                <input type="text" [(ngModel)]="msg" class="form-control" id="chatInput" placeholder="Enter message...">
+            </div>
+            <div id="subForm" class="col-1 p-0">
+                <button class='btn btn-danger' (click)="sendMessage()">
+                    <fa-icon [icon]="faPaperPlane"></fa-icon>
+                </button>
+            </div>
+        </div>
+    </div>
 </div>

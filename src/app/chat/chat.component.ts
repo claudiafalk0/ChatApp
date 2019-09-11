@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ChatService } from '@src/app/chat.service';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '@src/app/auth/auth.service';
@@ -11,8 +11,9 @@ import * as moment from 'moment';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit, AfterViewChecked {
 
+  @ViewChild('chatContainer', {static: false}) private chatContainer: ElementRef;
   msg: string;
   messages: object[] = [];
   faPaperPlane = faPaperPlane;
@@ -28,6 +29,10 @@ export class ChatComponent implements OnInit {
     this.msg = '';
   }
 
+  scrollToBottom() {
+    this.chatContainer.nativeElement.scrollTop = this.chatContainer.nativeElement.scrollHeight;
+  }
+
   ngOnInit() {
     this.chatService
         .getMessages()
@@ -40,4 +45,9 @@ export class ChatComponent implements OnInit {
           console.log(msg);
         });
   }
+
+  ngAfterViewChecked(): void {
+    this.scrollToBottom();
+  }
+
 }
